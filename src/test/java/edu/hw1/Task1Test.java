@@ -10,8 +10,8 @@ public class Task1Test {
     void task_1Testing() {
 
         String[] times = {"1:23", "1000000080:23", "14:60", "there_is_no_time_:D",
-            "0;1", "0:1", "1.23:1.23", "9999999999999:11", "0:0"};
-        long[] correct_answers = {83, 60000004823L, -1, -1, -1, 1, -1, 599999999999951L, 0};
+            "0;1", "0:1", "1.23:1.23", "9999999999999:11", "0:0","1:1"};
+        long[] correct_answers = {83, 60000004823L, -1, -1, -1, 1, -1, 599999999999951L, 0,61};
 
         long[] seconds = new long[correct_answers.length];
         for (int i = 0; i < times.length; ++i) {
