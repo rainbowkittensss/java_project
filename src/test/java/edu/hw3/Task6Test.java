@@ -26,11 +26,11 @@ public class Task6Test {
         market.add(inputStocks[2]);
 
         market.remove(inputStocks[0]);
-        assertThat(market.mostValuableStock()).isEqualTo(inputStocks[1]);
-        market.remove(inputStocks[0]);
-        market.remove(inputStocks[1]);
         assertThat(market.mostValuableStock()).isEqualTo(inputStocks[2]);
+        market.remove(inputStocks[0]);
         market.remove(inputStocks[2]);
+        assertThat(market.mostValuableStock()).isEqualTo(inputStocks[1]);
+        market.remove(inputStocks[1]);
         assertThat(market.mostValuableStock()).isEqualTo(null);
 
     }

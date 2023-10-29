@@ -8,7 +8,7 @@ public class Task6 {
     private Task6() {
     }
 
-    static Comparator<Stock> compByValue = Comparator.comparingDouble(Stock::value);
+    static Comparator<Stock> compByValue = (o1, o2) -> Double.compare(o2.value, o1.value);
 
     interface StockMarketInterface {
         /** Добавить акцию */
@@ -30,10 +30,6 @@ public class Task6 {
             company = companyArg;
             value = valueArg;
             id = UUID.randomUUID();
-        }
-
-        public double value() {
-            return value;
         }
     }
 
