@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task3 {
+public class Task3Repaired {
 
-    private Task3() {
+    private Task3Repaired() {
     }
 
     static double min(double[] arr) {

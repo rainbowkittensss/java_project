@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task3Test {
+public class Task3RepairedTest {
     @Test
     @DisplayName("task_3_testing")
     void task_3Testing() {
@@ -15,7 +15,7 @@ public class Task3Test {
 
         boolean[] answers = new boolean[correct_answers.length];
         for (int i = 0; i < first_arrays.length; ++i) {
-            answers[i] = Task3.isNestable(first_arrays[i], second_arrays[i]);
+            answers[i] = Task3Repaired.isNestable(first_arrays[i], second_arrays[i]);
         }
 
         assertThat(answers).isEqualTo(correct_answers);

@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task8 {
+public class Task8Repaired {
 
-    private Task8() {
+    private Task8Repaired() {
     }
 
     static final int FIELD_SIZE = 8;

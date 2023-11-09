@@ -1,10 +1,10 @@
 package edu.hw1;
 
-public class Task1 {
+public class Task1Repaired {
     static final int SECONDS = 60;
     static final long MAX_MINUTES = 1000000000000000000L - SECONDS;
 
-    private Task1() {
+    private Task1Repaired() {
     }
 
     static long minutesToSeconds(String inp) { //task_1

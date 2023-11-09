@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task4 {
+public class Task4Repaired {
 
-    private Task4() {
+    private Task4Repaired() {
     }
 
     static String fixString(String str) {   //task_4

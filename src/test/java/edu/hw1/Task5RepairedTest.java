@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task5Test {
+public class Task5RepairedTest {
     @Test
     @DisplayName("task_5_testing")
     void task_5Testing() {
@@ -14,7 +14,7 @@ public class Task5Test {
 
         boolean[] answers = new boolean[correct_answers.length];
         for (int i = 0; i < numbers.length; ++i) {
-            answers[i] = Task5.isPalindromeDescendant(numbers[i]);
+            answers[i] = Task5Repaired.isPalindromeDescendant(numbers[i]);
         }
 
         assertThat(answers).isEqualTo(correct_answers);

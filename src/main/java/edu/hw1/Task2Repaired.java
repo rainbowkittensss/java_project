@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task2 {
+public class Task2Repaired {
 
-    private Task2() {
+    private Task2Repaired() {
     }
 
     //final static int LIMIT_OF_CAPACITY = 16;
