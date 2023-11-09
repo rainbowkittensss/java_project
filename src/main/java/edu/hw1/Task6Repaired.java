@@ -2,9 +2,9 @@ package edu.hw1;
 
 import java.util.Arrays;
 
-public class Task6 {
+public class Task6Repaired {
 
-    private Task6() {
+    private Task6Repaired() {
     }
 
     static char[] maxNumberStr;

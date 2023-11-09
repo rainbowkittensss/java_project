@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task8Test {
+public class Task8RepairedTest {
 
     @Test
     @DisplayName("task_8_testing")
@@ -61,7 +61,7 @@ public class Task8Test {
 
         boolean[] answers = new boolean[correct_answers.length];
         for (int i = 0; i < correct_answers.length; ++i) {
-            answers[i] = Task8.knightBoardCapture(fields[i]);
+            answers[i] = Task8Repaired.knightBoardCapture(fields[i]);
         }
 
         assertThat(answers).isEqualTo(correct_answers);

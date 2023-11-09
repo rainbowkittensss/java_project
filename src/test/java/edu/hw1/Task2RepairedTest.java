@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task2Test {
+public class Task2RepairedTest {
     @Test
     @DisplayName("task_2_testing")
     void task_2Testing() {
@@ -18,7 +18,7 @@ public class Task2Test {
 
         int[] answers = new int[correct_answers.length];
         for (int i = 0; i < numbers.length; ++i) {
-            answers[i] = Task2.countDigits(numbers[i]);
+            answers[i] = Task2Repaired.countDigits(numbers[i]);
         }
 
         assertThat(answers).isEqualTo(correct_answers);

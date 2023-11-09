@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task1Test {
+public class Task1RepairedTest {
     @Test
     @DisplayName("task_1_testing")
     void task_1Testing() {
@@ -15,7 +15,7 @@ public class Task1Test {
 
         long[] seconds = new long[correct_answers.length];
         for (int i = 0; i < times.length; ++i) {
-            seconds[i] = Task1.minutesToSeconds(times[i]);
+            seconds[i] = Task1Repaired.minutesToSeconds(times[i]);
         }
 
         assertThat(seconds).isEqualTo(correct_answers);

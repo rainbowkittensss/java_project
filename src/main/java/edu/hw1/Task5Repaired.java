@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task5 {
+public class Task5Repaired {
 
-    private Task5() {
+    private Task5Repaired() {
     }
 
     static boolean isPalindromeStringBuilder(StringBuilder string, int length) {

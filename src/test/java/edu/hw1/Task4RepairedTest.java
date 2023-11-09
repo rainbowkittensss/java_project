@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task4Test {
+public class Task4RepairedTest {
     @Test
     @DisplayName("task_4_testing")
     void task_4Testing() {
@@ -14,7 +14,7 @@ public class Task4Test {
 
         String[] answers = new String[correct_answers.length];
         for (int i = 0; i < lines.length; ++i) {
-            answers[i] = Task4.fixString(lines[i]);
+            answers[i] = Task4Repaired.fixString(lines[i]);
         }
 
         assertThat(answers).isEqualTo(correct_answers);

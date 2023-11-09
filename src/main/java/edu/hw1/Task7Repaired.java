@@ -1,8 +1,8 @@
 package edu.hw1;
 
-public class Task7 {
+public class Task7Repaired {
 
-    private Task7() {
+    private Task7Repaired() {
     }
 
     static int rotateLeft(int n, int shift) { //task_7
