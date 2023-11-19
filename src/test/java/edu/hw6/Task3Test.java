@@ -12,35 +12,33 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class Task3Test {
     @Test
     void Task3Test1() throws IOException {
-        try {
-            Files.createDirectory(Paths.get(
-                "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files"));
-            Path pathToFile1 = Paths.get(
-                "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file1.txt");
-            Files.createFile(pathToFile1);
-            Files.writeString(pathToFile1, "there is some info");
-            Files.createFile(pathToFile1.resolveSibling("AAAfile5.csv"));
-            Files.createFile(Paths.get(
-                "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file2.csv"));
-            Files.createFile(Paths.get(
-                "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file3.xml"));
-            Files.createFile(Paths.get(
-                "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\another1.txt"));
-        } catch (IOException exception) {
-            //TODO
-        }
+
+        Files.createDirectory(Paths.get(
+            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files"));
+        Path pathToFile1 = Paths.get(
+            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file1.txt");
+        Files.createFile(pathToFile1);
+        Files.writeString(pathToFile1, "there is some info");
+        Files.createFile(pathToFile1.resolveSibling("AAAfile5.csv"));
+        Files.createFile(Paths.get(
+            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file2.csv"));
+        Files.createFile(Paths.get(
+            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\file3.xml"));
+        Files.createFile(Paths.get(
+            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files\\another1.txt"));
 
         Path path =
             Paths.get("C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files");
-        try (DirectoryStream<Path> filteredByType = Files.newDirectoryStream(path, new Task3.FilterFileType("txt"));
-             DirectoryStream<Path> filteredByFileName = Files.newDirectoryStream(
-                 path, new Task3.FilterFileName("file.*"));
-             DirectoryStream<Path> filteredByAttribute = Files.newDirectoryStream(path, new Task3.FilterAtrributes(
-                 Task3.FilterAtrributes.TypeOfAttribute.READABLE));
-             DirectoryStream<Path> filteredBySize = Files.newDirectoryStream(
-                 path,
-                 new Task3.FilterSize(Task3.FilterSize.TypeOfCompare.LESS_THAN, 1)
-             )
+        try (
+            DirectoryStream<Path> filteredByType = Files.newDirectoryStream(path, new Task3.FilterFileType("txt"));
+            DirectoryStream<Path> filteredByFileName = Files.newDirectoryStream(
+                path, new Task3.FilterFileName("file.*"));
+            DirectoryStream<Path> filteredByAttribute = Files.newDirectoryStream(path, new Task3.FilterAtrributes(
+                Task3.FilterAtrributes.TypeOfAttribute.READABLE));
+            DirectoryStream<Path> filteredBySize = Files.newDirectoryStream(
+                path,
+                new Task3.FilterSize(Task3.FilterSize.TypeOfCompare.LESS_THAN, 1)
+            )
         ) {
             filteredByType.forEach(path1 -> assertThat(path1.endsWith("txt")).isTrue());
             filteredByFileName.forEach(path1 -> {

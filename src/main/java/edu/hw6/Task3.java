@@ -113,7 +113,6 @@ public class Task3 {
     public static class FilterMagicIdentifiers extends AbstractFilterDefault {
         public FilterMagicIdentifiers(Set<Byte> identifiers) {
             function = path -> {
-                boolean ans = true;
                 try {
                     Set<Byte> identifiersCopy = new java.util.HashSet<>(Set.copyOf(identifiers));
                     byte[] file = Files.readAllBytes(path);
