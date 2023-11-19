@@ -22,10 +22,9 @@ public class Task4 {
         try {
             newPath = Files.createFile(path);
         } catch (IOException exc) {
-            //TODO
-
+            return;
         }
-        if (newPath != null && Files.isRegularFile(newPath)) {
+        if (Files.isRegularFile(newPath)) {
             Checksum checksum = new CRC32();
             try (
                 OutputStream firstPartStream = new FileOutputStream(newPath.toFile());
@@ -38,8 +37,7 @@ public class Task4 {
                 PrintWriter printWriter = new PrintWriter(outputStreamWriter)
             ) {
                 printWriter.print("Programming is learned by writing programs. ― Brian Kernighan");
-            } catch (IOException exc) {
-                //TODO
+            } catch (IOException ignored) {
             }
         }
 
