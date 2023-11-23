@@ -75,7 +75,6 @@ public class Task1 {
                 actualMap.keySet().toArray(new String[0]),
                 actualMap.values().toArray(new String[0])
             );
-            int recordedBytes = 0;
             ByteBuffer buffer = null;
             try {
                 String fullTextOfFile = OBJ_MAPPER.writeValueAsString(tempObj);
@@ -84,11 +83,11 @@ public class Task1 {
                 Files.createFile(storagePath);
                 FileOutputStream fileOutputStream = new FileOutputStream(storagePath.toFile());
                 FileChannel printChannel = fileOutputStream.getChannel();
-                recordedBytes = printChannel.write(buffer);
+                printChannel.write(buffer);
                 fileOutputStream.close();
             } catch (IOException ignored) {
             }
-            if (buffer!=null&&(!unsavedAfterLastDump.isEmpty() || recordedBytes < buffer.limit())) {
+            if (buffer != null && (!unsavedAfterLastDump.isEmpty())) {
                 statusOfLastDump = -1;
             } else {
                 statusOfLastDump = 1;
