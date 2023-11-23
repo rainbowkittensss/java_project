@@ -1,10 +1,7 @@
 package edu.hw6;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -69,29 +66,21 @@ public class Task1 {
         }
 
         public void dump() {
-            unsavedAfterLastDump.clear();
             JSONforHashMap tempObj = new JSONforHashMap(
                 actualMap.size(),
                 actualMap.keySet().toArray(new String[0]),
                 actualMap.values().toArray(new String[0])
             );
-            ByteBuffer buffer = null;
             try {
                 String fullTextOfFile = OBJ_MAPPER.writeValueAsString(tempObj);
-                buffer = ByteBuffer.wrap(fullTextOfFile.getBytes());
                 Files.deleteIfExists(storagePath);
                 Files.createFile(storagePath);
-                FileOutputStream fileOutputStream = new FileOutputStream(storagePath.toFile());
-                FileChannel printChannel = fileOutputStream.getChannel();
-                printChannel.write(buffer);
-                fileOutputStream.close();
-            } catch (IOException ignored) {
-            }
-            if (buffer != null && (!unsavedAfterLastDump.isEmpty())) {
+                Files.writeString(storagePath, fullTextOfFile);
+            } catch (IOException exc) {
                 statusOfLastDump = -1;
-            } else {
-                statusOfLastDump = 1;
+                return;
             }
+            statusOfLastDump = 1;
         }
 
         public int getStatusOfLastDump() {

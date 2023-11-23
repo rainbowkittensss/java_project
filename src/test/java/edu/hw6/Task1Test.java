@@ -73,6 +73,7 @@ public class Task1Test {
 
             assertThat(secondDiskMap.entrySet()).isEqualTo(Map.of("b", "b1", "c", "c1").entrySet());
             Files.delete(diskMap.getStoragePath());
+
             deleteEnvironment();
         }
     }
