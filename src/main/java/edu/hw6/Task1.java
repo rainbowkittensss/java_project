@@ -32,7 +32,6 @@ public class Task1 {
                 try {
                     storagePath = path.resolve("mapNumber" + UUID.randomUUID() + ".json");
                     Files.createFile(storagePath);
-
                 } catch (IOException exc) {
                     storagePath = null;
                 }

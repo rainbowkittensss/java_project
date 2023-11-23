@@ -34,7 +34,9 @@ public class Task1Test {
                 }
             });
         }
-       if(!pathDir.toFile().delete())throw new IOException();
+        if (!pathDir.toFile().delete()) {
+            throw new IOException();
+        }
     }
 
     @Test
@@ -63,18 +65,16 @@ public class Task1Test {
         diskMap.put("a", "a1");
         diskMap.put("b", "b1");
         diskMap.dump();
-        if (diskMap.getStatusOfLastDump() == -1) {
-            throw new IOException();
-        } else {
-            diskMap.remove("a");
-            diskMap.put("c", "c1");
-            diskMap.dump();
-            DiskMap secondDiskMap = DiskMap.uploadAndUseOldStorage(diskMap.getStoragePath());
 
-            assertThat(secondDiskMap.entrySet()).isEqualTo(Map.of("b", "b1", "c", "c1").entrySet());
-            Files.delete(diskMap.getStoragePath());
+        diskMap.remove("a");
+        diskMap.put("c", "c1");
+        diskMap.dump();
+        DiskMap secondDiskMap = DiskMap.uploadAndUseOldStorage(diskMap.getStoragePath());
 
-            deleteEnvironment();
-        }
+        assertThat(secondDiskMap.entrySet()).isEqualTo(Map.of("b", "b1", "c", "c1").entrySet());
+        Files.delete(diskMap.getStoragePath());
+
+        deleteEnvironment();
+
     }
 }
