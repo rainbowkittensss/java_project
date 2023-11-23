@@ -13,7 +13,7 @@ public class Task2Test {
 
     static void createEnvironment() throws IOException {
         pathDir = Paths.get(
-            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task2Sources");
+            "src\\main\\java\\edu\\hw6\\task2Sources");
         Files.createDirectory(pathDir);
         Files.createFile(pathDir.resolve("fileForTask2Test.txt"));
         Files.createFile(pathDir.resolve("anotherFile -- копия.csv"));

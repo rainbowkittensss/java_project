@@ -13,7 +13,7 @@ public class Task3Test {
     @Test
     void Task3Test1() throws IOException {
         Path pathToDir = Paths.get(
-            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task3files");
+            "src\\main\\java\\edu\\hw6\\task3files");
         Files.createDirectory(pathToDir);
         Path pathToFile1 = pathToDir.resolve("file1.txt");
         Files.createFile(pathToFile1);

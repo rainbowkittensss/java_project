@@ -19,7 +19,6 @@ public class Task1 {
 
     public static class DiskMap implements Map<String, String> {
 
-        public static final String ROOT_DIR = "C:/Users/mrpop/java-course-2023/project-template/";
         public static final String PATH_TO_MAPS = "src/main/java/edu/hw6/task1Sources";
         private static final ObjectMapper OBJ_MAPPER = new ObjectMapper();
         private final HashMap<String, String> actualMap;
@@ -44,7 +43,7 @@ public class Task1 {
             actualMap = new HashMap<>();
             unsavedAfterLastDump = new ArrayList<>();
             if (createStorage) {
-                setStorage(Paths.get(ROOT_DIR, PATH_TO_MAPS));
+                setStorage(Paths.get(PATH_TO_MAPS));
             }
         }
 

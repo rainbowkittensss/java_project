@@ -11,7 +11,7 @@ public class Task4Test {
     @Test
     void Task4Test1() throws IOException {
         Path pathDir = Paths.get(
-            "C:\\Users\\mrpop\\java-course-2023\\project-template\\src\\main\\java\\edu\\hw6\\task4Sources");
+            "src\\main\\java\\edu\\hw6\\task4Sources");
         Files.createDirectory(pathDir);
         Path pathFile = pathDir.resolve("resultFile");
 
