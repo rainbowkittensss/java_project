@@ -1,8 +1,6 @@
 package edu.hw6;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -17,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class Task1 {
 
@@ -28,12 +28,14 @@ public class Task1 {
         private final HashMap<String, String> actualMap;
         List<String> unsavedAfterLastDump;
         private Path storagePath;
+        private int statusOfLastDump;
 
         private void setStorage(Path path) {
             if (Files.isDirectory(path)) {
                 try {
-                    Files.createFile(path.resolve("mapNumber" + UUID.randomUUID() + ".json"));
-                    storagePath = path;
+                    storagePath = path.resolve("mapNumber" + UUID.randomUUID() + ".json");
+                    Files.createFile(storagePath);
+
                 } catch (IOException exc) {
                     storagePath = null;
                 }
@@ -66,15 +68,15 @@ public class Task1 {
             }
         }
 
-        public int dump() {
+        public void dump() {
             unsavedAfterLastDump.clear();
             JSONforHashMap tempObj = new JSONforHashMap(
                 actualMap.size(),
                 actualMap.keySet().toArray(new String[0]),
                 actualMap.values().toArray(new String[0])
             );
-            int recordedBytes;
-            ByteBuffer buffer;
+            int recordedBytes = 0;
+            ByteBuffer buffer = null;
             try {
                 String fullTextOfFile = OBJ_MAPPER.writeValueAsString(tempObj);
                 buffer = ByteBuffer.wrap(fullTextOfFile.getBytes());
@@ -84,14 +86,17 @@ public class Task1 {
                 FileChannel printChannel = fileOutputStream.getChannel();
                 recordedBytes = printChannel.write(buffer);
                 fileOutputStream.close();
-            } catch (IOException exc) {
-                return -1;
+            } catch (IOException ignored) {
             }
-            if (!unsavedAfterLastDump.isEmpty() || recordedBytes < buffer.limit()) {
-                return -1;
+            if (buffer!=null&&(!unsavedAfterLastDump.isEmpty() || recordedBytes < buffer.limit())) {
+                statusOfLastDump = -1;
             } else {
-                return 1;
+                statusOfLastDump = 1;
             }
+        }
+
+        public int getStatusOfLastDump() {
+            return statusOfLastDump;
         }
 
         @Override public int size() {
@@ -122,7 +127,8 @@ public class Task1 {
             return actualMap.remove(key);
         }
 
-        @Override public void putAll(@NotNull Map m) {
+        @Override public void putAll(@NotNull Map<? extends String, ? extends String> m) {
+
             actualMap.putAll(m);
         }
 

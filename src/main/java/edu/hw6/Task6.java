@@ -44,7 +44,7 @@ public class Task6 {
     public static boolean[] isPortFree = new boolean[NUMBER_OF_PORTS + 1];
 
     public static void searchSockets() {
-        StringBuilder theInfo = new StringBuilder("List of active sockets and it's destinations\n");
+        StringBuilder theInfo = new StringBuilder("List of active sockets and theirs appointments\n");
         if (listOfPortsInfo.isEmpty()) {
             fullTheMap();
         }
@@ -65,7 +65,7 @@ public class Task6 {
             if (isPortFree[i] && listOfPortsInfo.containsKey(i)) {
                 theInfo.append("Socket number: ")
                     .append(i)
-                    .append(" used for: ")
+                    .append(" is used for: ")
                     .append(listOfPortsInfo.get(i))
                     .append("\n");
             }
